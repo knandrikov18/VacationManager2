@@ -13,7 +13,6 @@ public class Team {
     @Column
     private int projectId;
     @Column
-
     private int teamLeaderId;
 
     public Team(String teamName, int teamId, int projectId, int teamLeaderId) {
@@ -21,6 +20,10 @@ public class Team {
         this.teamId = teamId;
         this.projectId = projectId;
         this.teamLeaderId = teamLeaderId;
+    }
+
+    public Team(){
+
     }
 
     public String getTeamName() {

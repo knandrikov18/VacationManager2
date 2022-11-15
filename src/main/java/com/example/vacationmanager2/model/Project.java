@@ -1,11 +1,23 @@
 package com.example.vacationmanager2.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Project")
 public class Project {
+    @Id
+    @GeneratedValue
     private int projectId;
+    @Column
     private String projectName;
+
     public Project(int projectId, String projectName) {
         this.projectId = projectId;
         this.projectName = projectName;
+    }
+
+    public Project() {
+
     }
 
     public int getProjectId() {
