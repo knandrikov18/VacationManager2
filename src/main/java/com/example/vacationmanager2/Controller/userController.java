@@ -18,12 +18,34 @@ public class userController {
     public String index(){
         return "index";
     }
+    @GetMapping("/loginPage")
+    public String loginPage(){
+        return "login";
+    }
+    @GetMapping("/registerPage")
+    public String registerPage(){
+        return "register";
+    }
+
     @PostMapping("/register")
     public String userRegistration(@ModelAttribute User user, Model model) {
 
         User user_inserted = userRepo.save(user);
         model.addAttribute("message", user_inserted.getFirstName() + " " + user_inserted.getLastName());
 
+        return "view";
+    }
+    @GetMapping(value="/login")
+    public String getUserByUsernameAndPassword(@ModelAttribute User user, Model model) {
+        User loggedUser = userRepo.findByNicknameAndPassword(user.getNickname(), user.getPassword());
+        model.addAttribute("getLoggedUser", loggedUser);
+
+        if(loggedUser.getRole().contains("CEO")) {
+            return "ceo";
+        }
+        else if(loggedUser.getRole().contains("Developer")) {
+            return "developer";
+        }
         return "view";
     }
 }
