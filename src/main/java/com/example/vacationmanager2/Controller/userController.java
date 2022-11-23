@@ -29,11 +29,8 @@ public class userController {
 
     @PostMapping("/register")
     public String userRegistration(@ModelAttribute User user, Model model) {
-
-        User user_inserted = userRepo.save(user);
-        model.addAttribute("message", user_inserted.getFirstName() + " " + user_inserted.getLastName());
-
-        return "view";
+        userRepo.save(user);
+        return "index";
     }
     @GetMapping(value="/login")
     public String getUserByUsernameAndPassword(@ModelAttribute User user, Model model) {
