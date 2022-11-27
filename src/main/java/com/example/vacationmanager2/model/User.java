@@ -1,4 +1,6 @@
 package com.example.vacationmanager2.model;
+import org.springframework.data.repository.CrudRepository;
+
 import javax.persistence.*;
 
 @Entity
@@ -79,6 +81,14 @@ public class User {
 
     public void setTeam(String team) {
         this.team = team;
+    }
+
+    public void getId() {
+        this.id = id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

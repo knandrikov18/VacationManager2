@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+  body {
+    background: url("https://media.istockphoto.com/id/1337977426/photo/dark-gray-and-black-grunge-cement-wall-studio-room-space-product-background-template.jpg?b=1&s=170667a&w=0&k=20&c=4dVCV5KtJKEhuQtp5dbnFmwMBAzNknz35VUIa0C3KoE=") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  h1 {
+    color: white;
+    font-size: 50px;
+    font-family: Consolas;
+  }
+
+  table, th, td {
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+  }
+
+  .navbar {
+    overflow: hidden;
+  }
+
+  .navbar a{
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .button {
+    float: right;
+    overflow: hidden;
+    display: block;
+  }
+
+  .button3 {
+    float: left;
+    overflow: hidden;
+    display: block;
+  }
+
+  .button3 .btn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .button3:hover .btn {
+    background-color: red;
+  }
+
+  .button .btn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .button:hover .btn {
+    background-color: red;
+  }
+
+  .button1 {
+    float: right;
+    overflow: hidden;
+    display: block;
+  }
+
+  .button1 .btn1 {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #000000;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .button1:hover .btn1 {
+    background-color: red;
+    color: white;
+  }
+
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a{
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover{
+    background-color: #ddd;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  #logoutButton {
+    float: right;
+  }
+</style>
+<body>
+<center><h1>Users</h1></center>
+
+<table style="width:100%">
+  <tr>
+    <th>Team name</th>
+    <th>Project</th>
+    <th>Team leader</th>
+  </tr>
+
+  <tr th:each="team : ${teams}" class="table-items">
+    <td th:text="${team.getTeam().teamName}" style="font-size: 30px"></td>
+    <td style="font-size: 30px">No Project</td>
+    <td th:text="${team.getUser().nickname}" style="font-size: 30px"></td>
+  </tr>
+
+</table>
+
+</body>
+</html>
