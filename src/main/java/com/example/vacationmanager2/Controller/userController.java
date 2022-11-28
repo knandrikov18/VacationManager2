@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @Controller
 public class userController {
     @Autowired
@@ -53,10 +56,9 @@ public class userController {
         User loggedUser = userRepo.findByNicknameAndPassword(user.getNickname(), user.getPassword());
         model.addAttribute("getLoggedUser", loggedUser);
 
-        if(loggedUser.getRole().contains("CEO")) {
+        if (loggedUser.getRole().contains("CEO")) {
             return "ceo";
-        }
-        else if(loggedUser.getRole().contains("Developer")) {
+        } else if (loggedUser.getRole().contains("Developer")) {
             return "developer";
         }
         return "view";

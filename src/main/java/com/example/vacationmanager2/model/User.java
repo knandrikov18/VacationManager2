@@ -1,5 +1,4 @@
 package com.example.vacationmanager2.model;
-import org.springframework.data.repository.CrudRepository;
 
 import javax.persistence.*;
 
@@ -83,8 +82,8 @@ public class User {
         this.team = team;
     }
 
-    public void getId() {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
